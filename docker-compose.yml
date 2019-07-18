@@ -8,6 +8,7 @@ services:
     working_dir: /projects
     volumes:
       - $SSH_AUTH_SOCK:/ssh-agent
+      - /var/run/docker.sock:/var/run/docker.sock
       - /projects:/projects
     environment:
       SSH_AUTH_SOCK: /ssh-agent
