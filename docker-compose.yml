@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  tools:
+    image: development
+    tty: true
+    stdin_open: true
+    working_dir: /projects
+    volumes:
+      - $SSH_AUTH_SOCK:/ssh-agent
+      - /projects:/projects
+    environment:
+      SSH_AUTH_SOCK: /ssh-agent
+    hostname: ${HOSTNAME}-tools
+    ports:
+      - "22:2222" # ssh
+      - "60000-60010:60000-60010" # mosh

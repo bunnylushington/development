@@ -1,0 +1,10 @@
+*~
+.bash_history
+.cache
+.cloud-locale-test.skip
+.gnupg
+.profile
+.ssh
+.viminfo
+.emacs.d/ido.last
+.emacs.d/auto-save-list
