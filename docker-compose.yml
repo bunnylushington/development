@@ -11,6 +11,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /projects:/projects
     environment:
+      MACHINE_SSH_AUTH_SOCK: $SSH_AUTH_SOCK
       SSH_AUTH_SOCK: /ssh-agent
     hostname: ${HOSTNAME}-tools
     ports:
