@@ -9,7 +9,7 @@
 (ido-mode 1)
 
 (require 'whitespace)
-(setq whitespace-style '(face empty tabs lines-tail trailing))
+(setq whitespace-style '(face lines-tail))
 (global-whitespace-mode t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

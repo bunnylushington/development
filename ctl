@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 
@@ -13,6 +12,7 @@ case $1 in
 	       -p 4500:4500/udp \
 	       -d --privileged \
 	       hwdsl2/ipsec-vpn-server
+	mkdir /projects
         HOSTNAME=$(hostname) docker stack deploy -c docker-compose.yml dev
         ;;
     stop)
