@@ -31,6 +31,7 @@
 ;; Key Bindings
 (global-set-key "\M-`" 'other-frame)
 (global-set-key "\M-g" 'goto-line)
+(global-set-key "\C-xj" 'open-junk-file)
 (define-key input-decode-map "\e\eOA" [(meta up)])
 (define-key input-decode-map "\e\eOB" [(meta down)])
 (global-set-key [(meta down)] 'forward-paragraph)
