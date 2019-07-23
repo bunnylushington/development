@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export SSH_AUTH_SOCK
+
 function start_ipsec {
     if [ $(docker inspect -f '{{.State.Running}}' ipsec-vpn-server) != "true" ];
     then
@@ -14,11 +16,19 @@ function start_ipsec {
     fi
 }
 
+function start_ssh {
+    if [[ ! -e /ssh-agent ]]; then
+        eval $(ssh-agent -a /ssh-agent) >/dev/null
+        echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK"
+    fi
+}
+
 case $1 in
 
     start)
+        start_ssh
         start_ipsec
- 	      mkdir -p /projects
+        mkdir -p /projects
         HOSTNAME=$(hostname) docker stack deploy -c docker-compose.yml dev
         ;;
     stop)
@@ -40,4 +50,5 @@ case $1 in
 esac
 
 
-        
+
+
