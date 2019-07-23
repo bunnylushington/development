@@ -43,9 +43,10 @@ apt-get install mosh
 ufw allow 60000:61000/udp
 ```
 
-It's generally helpful to have a reasonable SSH environment configured.  To that
-end, I create `/root/.ssh/config` and a private key, ensuring that the file
-permissions are correct.  Once that's in place:
+It's generally helpful to have a reasonable SSH environment
+configured.  To that end, I create `/root/.ssh/config` and a private
+key, ensuring that the file permissions are correct.  Once that's in
+place:
 
 ```
 eval $(ssh-agent)
@@ -55,6 +56,9 @@ ssh-add /root/.ssh/private_key
 While using the development container, starting the ssh-agent is not optional.
 (Well, it is but the environment variable SSH_AUTH_SOCK must be set to an
 existing directory on the Docker machine filesystem.)
+
+See below for other SSH notes, including how ssh-agent can be started
+from the `ctl` script.
 
 ### Running the development Container
 
@@ -71,8 +75,9 @@ Now clone the development container repository:
 git clone git@github.com:bunnylushington/development
 ```
 
-In that repository there is a little shell script `ctl` that helps automate some
-of the remaining steps.  The first step is to build the development container:
+In that repository there is a little shell script `ctl` that helps
+automate some of the remaining steps.  The first step is to build the
+development container:
 
 ```
 ./ctl build
@@ -81,10 +86,17 @@ of the remaining steps.  The first step is to build the development container:
 Once built, the container can be run:
 
 ```
-./ctl start
+eval $(./ctl start)
 ```
 
-This command will also start a ipsec VPN container, more below.
+This command will also start a ipsec VPN container.  We evaluate the
+ctl command because it's going to return a SSH_AUTH_SOCK assignment
+when it starts up the ssh-agent.  A key can then be added to the
+agent:
+
+```
+ssh-add ~/.ssh/id_rsa
+```
 
 The running development container can be attached to with
 
@@ -101,29 +113,31 @@ and stopped with
 
 ## Some Possibilities
 
-There are a couple of conveniences that have been setup.  The first is the
-propogation of the SSH authentication agent.  Keys that have been added to
-the agent on the Docker machine are now available on the development container
-as well (which might make git cloning, say, easier).
+There are a couple of conveniences that have been setup.  The first is
+the propogation of the SSH authentication agent.  Keys that have been
+added to the agent on the Docker machine are now available on the
+development container as well (which might make git cloning, say,
+easier).
 
-The second convenience is the ability to run Docker commands in the developemnt
-container.  This allows development inside application specific containers to
-happen from within the development container.  It is important to note that the
-secondary containers (let's say a PGSQL DB container) will map volumes from
-the Docker machine that's running the development (and PGSQL DB) container, not
-the development container itself.  So volumes can be persistent even if the
+The second convenience is the ability to run Docker commands in the
+development container.  This allows development inside application
+specific containers to happen from within the development container.
+It is important to note that the secondary containers (let's say a
+PGSQL DB container) will map volumes from the Docker machine that's
+running the development (and PGSQL DB) container, not the development
+container itself.  So volumes can be persistent even if the
 devbelopment container is terminated.
 
-The filesystem /projects is mounted from the Docker machine into the development
-container.  It's expected that code under development will reside here (but
-that's just a convenience).
+The filesystem /projects is mounted from the Docker machine into the
+development container.  It's expected that code under development will
+reside here (but that's just a convenience).
 
 ## In Use
 
 ### Colors
 
 To get a nice usable 256 color palatte in (terminal) emacs, there were
-a few configuration steps:
+a few configuration steps baked into the configuration:
 
   - Set iTerm2 to report the terminal type `xterm-256color`
   - `export TERM=xterm-256color` in .zshrc
@@ -131,14 +145,14 @@ a few configuration steps:
   - `set -g default-terminal "screen-256color"` in .tmux.conf
   
 After this, things started working okay.  Seems a little like waving a
-rubber chicken but it solved the problem.  You can test the color palette
-in emacs with `M-x list-color-display`.
+rubber chicken but it solved the problem.  You can test the color
+palette in emacs with `M-x list-color-display`.
 
 ### The Meta Key
 
-I've been using the key immediately to the left of the space bar as meta
-for so long that remapping my brain would be hard.  To solve the issue of 
-emacs + iTerm2, I adjusted three iTerm2 settings:
+I've been using the key immediately to the left of the space bar as
+meta for so long that remapping my brain would be hard.  To solve the
+issue of emacs + iTerm2, I adjusted three iTerm2 settings:
 
   - profiles > keys > left option key sends: Esc+
   - keys > left option key: left command
@@ -175,6 +189,6 @@ DM, there's no need to create SSH tunnels everywhere.
 
 ## Last Thoughts
 
-This might not be a great solution.  I have a need for remote Docker-based
-application development and standardizing how this works makes sense for my
-usecase.  
+This might not be a great solution.  I have a need for remote
+Docker-based application development and standardizing how this works
+makes sense for my usecase.
