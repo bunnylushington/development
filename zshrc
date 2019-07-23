@@ -10,3 +10,5 @@ export DISABLE_AUTO_TITLE=true
 source $ZSH/oh-my-zsh.sh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+alias tmux="tmux -2"
+export TERM=xterm-256color

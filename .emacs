@@ -21,7 +21,10 @@
     (switch-to-buffer (other-buffer)))
 (global-set-key "\M-\C-l" 'ii/switch-to-other-buffer)
 
-(server-start)
+(xterm-mouse-mode 1)
+
+(load "server")
+(unless (server-running-p) (server-start))
 (setq disabled-command-hook nil)
 (setq default-major-mode 'fundamental-mode
       initial-major-mode 'lisp-interaction-mode)

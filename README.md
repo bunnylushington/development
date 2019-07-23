@@ -118,13 +118,44 @@ The filesystem /projects is mounted from the Docker machine into the development
 container.  It's expected that code under development will reside here (but
 that's just a convenience).
 
+## In Use
+
+### Colors
+
+To get a nice usable 256 color palatte in (terminal) emacs, there were
+a few configuration steps:
+
+  - Set iTerm2 to report the terminal type `xterm-256color`
+  - `export TERM=xterm-256color` in .zshrc
+  - `alias tmux="tmux -2"`
+  - `set -g default-terminal "screen-256color"` in .tmux.conf
+  
+After this, things started working okay.  Seems a little like waving a
+rubber chicken but it solved the problem.  You can test the color palette
+in emacs with `M-x list-color-display`.
+
+### The Meta Key
+
+I've been using the key immediately to the left of the space bar as meta
+for so long that remapping my brain would be hard.  To solve the issue of 
+emacs + iTerm2, I adjusted three iTerm2 settings:
+
+  - profiles > keys > left option key sends: Esc+
+  - keys > left option key: left command
+  - keys > left command key: left option
+  
+so M-x is what I think it is.  Also, I set the iTerm2 profile to
+ignore cmd-w to prevent accidentally closing windows.
+  
+
 ## Security
 
-Out of the box, the DO VM allows throttled access to port 22, which provides for
-SSH access.  Above we also opened up some UDP ports for mosh communication.  The
-ipsec VPN conveniently allows for all the ports on the host to be accessed by a
-client VPN'd into the Docker machine.  So while ports must be mapped from
-containers back to the DM, there's no need to create SSH tunnels everywhere.
+Out of the box, the DO VM allows throttled access to port 22, which
+provides for SSH access.  Above we also opened up some UDP ports for
+mosh communication.  The ipsec VPN conveniently allows for all the
+ports on the host to be accessed by a client VPN'd into the Docker
+machine.  So while ports must be mapped from containers back to the
+DM, there's no need to create SSH tunnels everywhere.
 
 ## Last Thoughts
 
