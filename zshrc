@@ -12,3 +12,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 alias tmux="tmux -2"
 export TERM=xterm-256color
+
+export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
+export LESS='-R'

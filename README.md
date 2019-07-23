@@ -146,7 +146,23 @@ emacs + iTerm2, I adjusted three iTerm2 settings:
   
 so M-x is what I think it is.  Also, I set the iTerm2 profile to
 ignore cmd-w to prevent accidentally closing windows.
-  
+
+### The Mouse
+
+The .tmux.conf has been configured with `set -g mouse on` to allow for
+resizing panes, scrolling windows, and selecting panes with the mouse.
+
+In .emacs, `(xterm-mouse-mode 1)` has been set to allow minimal mouse
+interaction (scrolling, selection, and so on).
+
+To enable the scroll wheel access to the terminal, the
+
+```
+profiles > terminal > enable mouse reporting
+profiles > terminal > report mouse wheel events
+```
+
+settings have been enabled in iTerm2.
 
 ## Security
 

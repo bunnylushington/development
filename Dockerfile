@@ -1,18 +1,19 @@
 FROM ubuntu
 
 RUN apt-get update && \
-    apt-get -y install emacs && \
-    apt-get -y install tmux && \
-    apt-get -y install zsh && \
-    apt-get -y install mosh && \
-    apt-get -y install less && \
-    apt-get -y install git && \
-    apt-get -y install git-flow && \
-    apt-get -y install openssl && \
-    apt-get -y install net-tools && \
-    apt-get -y install curl && \
-    apt-get -y install mosh && \
-    apt-get -y install telnet
+  apt-get -y install emacs && \
+  apt-get -y install tmux && \
+  apt-get -y install zsh && \
+  apt-get -y install mosh && \
+  apt-get -y install less && \
+  apt-get -y install git && \
+  apt-get -y install git-flow && \
+  apt-get -y install openssl && \
+  apt-get -y install net-tools && \
+  apt-get -y install curl && \
+  apt-get -y install mosh && \
+  apt-get -y install telnet && \
+  apt-get -y install source-highlight
 
 ## install docker
 RUN apt-get -y install apt-transport-https \
