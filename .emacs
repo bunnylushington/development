@@ -39,6 +39,7 @@
 (define-key input-decode-map "\e\eOB" [(meta down)])
 (global-set-key [(meta down)] 'forward-paragraph)
 (global-set-key [(meta up)] 'backward-paragraph)
+(global-set-key (kbd "C-c C-a") 'ansi-term)
 
 ;; Parenthesis
 (show-paren-mode t)

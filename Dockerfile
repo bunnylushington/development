@@ -1,19 +1,8 @@
 FROM ubuntu
 
 RUN apt-get update && \
-  apt-get -y install emacs && \
-  apt-get -y install tmux && \
-  apt-get -y install zsh && \
-  apt-get -y install mosh && \
-  apt-get -y install less && \
-  apt-get -y install git && \
-  apt-get -y install git-flow && \
-  apt-get -y install openssl && \
-  apt-get -y install net-tools && \
-  apt-get -y install curl && \
-  apt-get -y install mosh && \
-  apt-get -y install telnet && \
-  apt-get -y install source-highlight
+  apt-get -y install emacs tmux zsh mosh less git git-flow openssl \
+  net-tools curl mosh telnet source-highlight xsel xclip
 
 ## install docker
 RUN apt-get -y install apt-transport-https \
@@ -43,5 +32,7 @@ COPY tmux.conf /root/.tmux.conf
 RUN mkdir /root/.ssh && chmod 700 /root/.ssh
 COPY .ssh/config /root/.ssh/config
 
+## set the default shell
+RUN chsh --shell /bin/zsh
 
 ENTRYPOINT /bin/zsh

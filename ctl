@@ -20,6 +20,8 @@ function start_ssh {
     if [[ ! -e /ssh-agent ]]; then
         eval $(ssh-agent -a /ssh-agent) >/dev/null
         echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK"
+    else
+        export SSH_AUTH_SOCK=/ssh-agent
     fi
 }
 

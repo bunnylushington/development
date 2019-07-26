@@ -9,5 +9,7 @@
 .viminfo
 .emacs.d/ido.last
 .emacs.d/auto-save-list
+.emacs.d/transient
+.emacs.d/url
 .vpn-env
 junk/*
