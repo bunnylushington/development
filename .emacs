@@ -105,13 +105,6 @@
         eshell-prefer-lisp-functions nil
         eshell-destroy-buffer-when-process-dies t))
 
-(defun eshell/xxx ()
-  (insert "exit")
-  (eshell-send-input)
-  (message "Windows: %s" (count-windows))
-  (if (> (count-windows) 1)
-      (delete-window)))
-
 (add-hook 'eshell-mode-hook
           (lambda ()
             (eshell/alias "e" "find-file $1")
