@@ -271,7 +271,7 @@ directory to make multiple eshell windows easier."
  '(erlang-indent-level 2)
  '(package-selected-packages
    (quote
-    (use-package e2wm e2wm-term window-number cyberpunk-theme flatui-dark-theme dired-rainbow color-theme-solarized web-mode alchemist apache-mode boxquote buffer-flip buffer-move colormaps column-enforce-mode com-css-sort csv csv-mode dad-joke dired-imenu distel-completion-lib docean docker-api docker-cli docker-compose-mode edbi edbi-minor-mode edts elm-mode emamux erlang filladapt fontawesome gh gh-md gitlab ido-hacks jinja2-mode jsonrpc magit markdown-mode markdown-mode+ markdown-preview-mode open-junk-file pg php-mode python python-mode restclient restclient-test salt-mode scss-mode tramp yaml-mode dockerfile-mode docker))))
+    (mmm-mode use-package e2wm e2wm-term window-number cyberpunk-theme flatui-dark-theme dired-rainbow color-theme-solarized web-mode alchemist apache-mode boxquote buffer-flip buffer-move colormaps column-enforce-mode com-css-sort csv csv-mode dad-joke dired-imenu distel-completion-lib docean docker-api docker-cli docker-compose-mode edbi edbi-minor-mode edts elm-mode emamux erlang filladapt fontawesome gh gh-md gitlab ido-hacks jinja2-mode jsonrpc magit markdown-mode markdown-mode+ markdown-preview-mode open-junk-file pg php-mode python python-mode restclient restclient-test salt-mode scss-mode tramp yaml-mode dockerfile-mode docker))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
