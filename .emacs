@@ -139,9 +139,18 @@ PWD is not in a git repo (or the git command is not found)."
            (git-output (shell-command-to-string
                         (concat "git rev-parse --abbrev-ref HEAD")))
            (git-branch (s-trim git-output))
-           (git-icon  "\xe0a0")
-           (git-icon2 (propertize "\xf020" 'face `(:family "octicons"))))
-      (concat "«"git-repo "·" git-branch "»"))))
+           (git-clean `(:foreground "green"))
+           (git-dirty `(:foreground "red"))
+           (git-face `(:foreground "brightblack"))
+           (git-separator
+            (if (equal (shell-command-to-string "git status -s") "")
+                (propertize "·" 'face git-clean)
+              (propertize "·" 'face git-dirty))))
+      (concat (propertize "«" 'face git-face)
+              (propertize git-repo 'face git-face)
+              git-separator
+              (propertize git-branch 'face git-face)
+              (propertize "»" 'face git-face)))))
 
 (defun pwd-replace-home (pwd)
   "Replace home in PWD with tilde (~) character."
@@ -196,8 +205,8 @@ PWD is not in a git repo (or the git command is not found)."
      (propertize parent 'face for-parent)
      (propertize name   'face for-dir)
      (when branch
-       (concat (propertize " • " 'face for-bars)
-               (propertize branch 'face for-git)))
+       (concat (propertize "·" 'face for-bars) branch))
+;               (propertize branch 'face for-git))) 
      (propertize ": " 'face for-bars))))
 
 (setq-default eshell-prompt-function #'eshell/eshell-local-prompt-function)

@@ -1,4 +1,6 @@
 *~
+\#*
+.\#*
 .lesshst
 .bash_history
 .cache
@@ -11,5 +13,6 @@
 .emacs.d/auto-save-list
 .emacs.d/transient
 .emacs.d/url
+.emacs.d/eshell
 .vpn-env
 junk/*
