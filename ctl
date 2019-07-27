@@ -3,7 +3,8 @@
 export SSH_AUTH_SOCK
 
 function start_ipsec {
-    if [ $(docker inspect -f '{{.State.Running}}' ipsec-vpn-server) != "true" ];
+    if [ $(docker inspect -f '{{.State.Running}}' ipsec-vpn-server) != "true" ]\
+	    || [ $? -ne 0 ]
     then
         docker run \
 	             --name ipsec-vpn-server \

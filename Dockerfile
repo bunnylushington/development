@@ -28,6 +28,9 @@ COPY .emacs /root/.emacs
 ## tmux setup
 COPY tmux.conf /root/.tmux.conf
 
+## git setup
+COPY gitconfig /root/.gitconfig
+
 ## ssh setup
 RUN mkdir /root/.ssh && chmod 700 /root/.ssh
 COPY .ssh/config /root/.ssh/config
