@@ -1,15 +1,12 @@
-;; Used in zsh theme to set an appropriate prompt.
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
-
-(setenv "EMACS" "true")
-
-;; Initialize packages.
 (load "~/.emacs.d/init-packages")
+
+;; Used in zsh theme to set an appropriate prompt.
+(setenv "EMACS" "true")
 
 ;; Appearance
 (load-theme 'cyberpunk t)
@@ -18,6 +15,7 @@
 (setq inhibit-startup-message t
       ring-bell-function (lambda ()))
 
+;; Spaces and Columns and Tabs...
 (column-enforce-mode)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
