@@ -45,8 +45,8 @@ case $1 in
                                --format "{{.ID}}")
         ;;
     build)
-        mkdir ./ssh && chmod 700 ./ssh
-        cp ~/.ssh/* .ssh
+        mkdir ./.ssh && chmod 700 ./.ssh
+        cp ~/.ssh/* ./.ssh
         chmod 600 .ssh/*
 	      docker build -t development .
 	;;
