@@ -1,2 +1,0 @@
-;;; -*- no-byte-compile: t -*-
-(define-package "e2wm-term" "20141009.1308" "Perspective of e2wm.el for work in terminal" '((e2wm "1.2") (log4e "0.2.0") (yaxception "0.3.2")) :commit "65b5ac88043d5c4048920a048f3599904ca55981" :keywords '("tools" "window manager") :authors '(("Hiroaki Otsu" . "ootsuhiroaki@gmail.com")) :maintainer '("Hiroaki Otsu" . "ootsuhiroaki@gmail.com") :url "https://github.com/aki2o/e2wm-term")

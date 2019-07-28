@@ -1,2 +1,0 @@
-;;; -*- no-byte-compile: t -*-
-(define-package "salt-mode" "20181225.1157" "Major mode for Salt States" '((emacs "24.4") (yaml-mode "0.0.12") (mmm-mode "0.5.4") (mmm-jinja2 "0.1")) :commit "5ed02dabe0c5c58f51959a48b559f7fc5425ea2c" :keywords '("languages") :authors '(("Ben Hayden" . "hayden767@gmail.com")) :maintainer '("Glynn Forrest" . "me@glynnforrest.com") :url "https://github.com/glynnforrest/salt-mode")

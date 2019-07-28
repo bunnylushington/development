@@ -9,10 +9,7 @@
 .profile
 .ssh
 .viminfo
-.emacs.d/ido.last
-.emacs.d/auto-save-list
-.emacs.d/transient
-.emacs.d/url
-.emacs.d/eshell
+.emacs.d/*
+!.emacs.d/init-packages.el
 .vpn-env
 junk/*
