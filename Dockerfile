@@ -24,6 +24,7 @@ COPY zshrc /root/.zshrc
 RUN mkdir -p /root/.emacs.d/
 COPY .emacs.d/ /root/.emacs.d/
 COPY .emacs /root/.emacs
+RUN emacs -Q -batch -l /root/.emacs.d/init-packages.el --eval=t
 
 ## tmux setup
 COPY tmux.conf /root/.tmux.conf
