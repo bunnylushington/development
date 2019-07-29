@@ -70,7 +70,7 @@ The ipsec-vpn-server expects the file `.vpn-env` in the same directory
 The contents of the file should be something like:
 
 ```
-VPN_IPSEC_PSK=secret-key-hereF
+VPN_IPSEC_PSK=secret-key-here
 VPN_USER=vpn-username-here
 VPN_PASSWORD=vpn-password-here
 ```
