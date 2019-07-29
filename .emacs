@@ -210,7 +210,7 @@ PWD is not in a git repo (or the git command is not found)."
      (when branch
        (concat (propertize "·" 'face for-bars) branch))
 ;               (propertize branch 'face for-git))) 
-     (propertize ": " 'face for-bars))))
+     (propertize " $ " 'face for-bars))))
 
 (setq-default eshell-prompt-function #'eshell/eshell-local-prompt-function)
 (setq eshell-highlight-prompt nil)

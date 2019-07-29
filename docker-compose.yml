@@ -15,3 +15,9 @@ services:
       SSH_AUTH_SOCK: /ssh-agent
       LANG: en_US.UTF-8
     hostname: ${HOSTNAME}-tools
+
+ 
+networks:
+  hostnet:
+    external: true
+    name: host
