@@ -57,8 +57,26 @@ While using the development container, starting the ssh-agent is not optional.
 (Well, it is but the environment variable SSH_AUTH_SOCK must be set to an
 existing directory on the Docker machine filesystem.)
 
+The /root/.ssh directory will be propagated into the development
+container (but is under git management).
+
 See below for other SSH notes, including how ssh-agent can be started
 from the `ctl` script.
+
+### IPSEC Setup
+
+The ipsec-vpn-server expects the file `.vpn-env` in the same directory
+`ctl` is run from.  This file contains secrets and is not git managed.
+The contents of the file should be something like:
+
+```
+VPN_IPSEC_PSK=secret-key-hereF
+VPN_USER=vpn-username-here
+VPN_PASSWORD=vpn-password-here
+```
+
+These values will be used when establishing a VPN tunnel from your
+desktop.
 
 ### Running the development Container
 
@@ -178,6 +196,16 @@ profiles > terminal > report mouse wheel events
 
 settings have been enabled in iTerm2.
 
+### Emacs
+
+During the build phase emacs is run in batch mode to download,
+compile, and install any packages that are listed in
+.emacs.d/init-packages.el.
+
+The .emacs file is tailored to the way I use emacs, it can be updated
+as required but keep the first two expressions!
+
+
 ## Security
 
 Out of the box, the DO VM allows throttled access to port 22, which
@@ -189,6 +217,7 @@ DM, there's no need to create SSH tunnels everywhere.
 
 ## Last Thoughts
 
-This might not be a great solution.  I have a need for remote
+This might not be a great solution for you.  I have a need for remote
 Docker-based application development and standardizing how this works
-makes sense for my usecase.
+makes sense for my usecase.  If you have suggestions or make
+interesting additions, please let me know!
