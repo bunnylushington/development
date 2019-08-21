@@ -50,6 +50,7 @@
 (global-set-key [(meta up)] 'backward-paragraph)
 (global-set-key (kbd "C-c C-f") 'eshell)
 (global-set-key (kbd "C-c C-j") 'join-line)
+(global-set-key (kbd "C-c C-w") 'windresize)                                                                                                                                         (global-set-key (kbd "C-c C-r l") 'rotate-layout)                                                                                                                                    (global-set-key (kbd "C-c C-r w") 'rotate-window)
 
 ;; Parenthesis
 (show-paren-mode t)
