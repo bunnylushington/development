@@ -12,7 +12,7 @@
         filladapt fontawesome gh gh-md gitlab ido-hacks jinja2-mode jsonrpc
         magit markdown-mode markdown-mode+ markdown-preview-mode open-junk-file
         pg php-mode python python-mode restclient restclient-test salt-mode
-        scss-mode tramp yaml-mode dockerfile-mode docker))
+        scss-mode tramp yaml-mode dockerfile-mode docker windresize rotate))
 
 (package-initialize)
 
