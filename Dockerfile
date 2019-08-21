@@ -3,7 +3,7 @@ FROM ubuntu
 RUN apt-get update && \
 	apt-get -y install tmux zsh mosh less git git-flow openssl \
 	net-tools curl mosh telnet source-highlight xsel xclip emacs \
-	postgresql-client
+	postgresql-client apt-transport-https
 
 
 ## install docker
@@ -16,6 +16,11 @@ RUN apt-get -y install apt-transport-https \
 RUN add-apt-repository \
       "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 RUN apt-get update && apt-get -y install docker-ce
+
+## install kubectl
+RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
+	&& echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list \
+	&& apt-get update && apt-get install -y kubectl
 
 ## Erlang setup
 RUN curl --output /tmp/es.deb https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb \
@@ -48,5 +53,11 @@ COPY .ssh/config /root/.ssh/config
 
 ## set the default shell
 RUN chsh --shell /bin/zsh
+
+## docker ctl
+RUN curl -sL https://github.com/digitalocean/doctl/releases/download/v1.28.0/doctl-1.28.0-linux-amd64.tar.gz \
+	| tar -xzv \
+	&& mv doctl /usr/local/bin
+
 
 ENTRYPOINT /bin/zsh
