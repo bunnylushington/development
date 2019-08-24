@@ -41,8 +41,8 @@ case $1 in
         docker stack ps dev
         ;;
     shell)
-        docker attach $(docker ps --filter name=dev_tools \
-                               --format "{{.ID}}")
+        docker exec -it $(docker ps --filter name=dev_tools \
+                               --format "{{.ID}}") /usr/bin/zsh
         ;;
     build)
         mkdir ./.ssh && chmod 700 ./.ssh
