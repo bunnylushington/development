@@ -215,6 +215,11 @@ ports on the host to be accessed by a client VPN'd into the Docker
 machine.  So while ports must be mapped from containers back to the
 DM, there's no need to create SSH tunnels everywhere.
 
+Actually, nothing's that simple.  Docker has some mighty strange ideas
+about how it should manage iptables.  For a discussion about that (and
+the resolution that I'm using) see
+[ufw-docker](https://github.com/chaifeng/ufw-docker).
+
 ## Last Thoughts
 
 This might not be a great solution for you.  I have a need for remote

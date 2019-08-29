@@ -3,7 +3,8 @@ FROM ubuntu
 RUN apt-get update && \
 	apt-get -y install tmux zsh mosh less git git-flow openssl \
 	net-tools curl mosh telnet source-highlight xsel xclip emacs \
-	postgresql-client apt-transport-https librest-client-perl
+	postgresql-client apt-transport-https librest-client-perl \
+	libjson-perl libfile-slurp-perl
 
 
 ## install docker
